@@ -9,7 +9,7 @@ object Main {
     println(res) //Set(name)
 
     import Lib._
-    println("abc".toOrgJson)//null
+    "abc".toOrgJson[Person] //Set(name)
   }
 }
 
@@ -20,6 +20,7 @@ object Lib {
     def toOrgJson[T: Extract]: JSONObject = {
       val arrayLikeFields: Set[String] = ArrayLikeFields.extract[T]
       //some code, that uses fields, etc
+      println(arrayLikeFields)
       null
     }
   }
