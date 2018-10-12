@@ -8,6 +8,7 @@ lazy val macros: Project = (project in file("macros")).settings(
   libraryDependencies ++= Seq(
     scalaOrganization.value % "scala-reflect" % scalaVersion.value,
     scalaOrganization.value % "scala-compiler" % scalaVersion.value,
+//    "com.chuusai" %% "shapeless" % "2.3.3"
   )
 )
 

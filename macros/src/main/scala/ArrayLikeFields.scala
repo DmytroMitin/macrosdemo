@@ -1,3 +1,5 @@
+//import shapeless.labelled.FieldType
+//import shapeless.{HList, HNil, LabelledGeneric, Witness, ::}
 import scala.language.experimental.macros
 import scala.reflect.macros.whitebox
 
@@ -31,3 +33,28 @@ object ArrayLikeFields {
     }
   }
 }
+
+//object ArrayLikeFields {
+//  def extract[T: Extract]: Set[String] = implicitly[Extract[T]].apply()
+//
+//  trait Extract[T] {
+//    def apply(): Set[String]
+//  }
+//
+//  object Extract {
+//    def instance[T](strs: Set[String]): Extract[T] = () => strs
+//
+//    implicit def genericExtract[T, Repr <: HList](implicit
+//                                                  labelledGeneric: LabelledGeneric.Aux[T, Repr],
+//                                                  extract: Extract[Repr]
+//                                                 ): Extract[T] = instance(extract())
+//
+//    implicit def hconsExtract[K <: Symbol, V, T <: HList](implicit
+//                                                          extract: Extract[T],
+//                                                          witness: Witness.Aux[K]
+//                                                         ): Extract[FieldType[K, V] :: T] =
+//      instance(extract() + witness.value.name)
+//
+//    implicit val hnilExtract: Extract[HNil] = instance(Set())
+//  }
+//}
